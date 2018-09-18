@@ -2,14 +2,14 @@
 package com.capgemini.spring.data.jpa.repositories.jpa;
 
 
-import com.capgemini.spring.data.jpa.entities.jpa.CountryEntity;
-import com.capgemini.spring.data.jpa.entities.jpa.ProvinceEntity;
-import org.springframework.stereotype.Repository;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import com.capgemini.spring.data.jpa.entities.jpa.CityEntity;
-
-import java.util.List;
 
 
 @Repository
@@ -19,7 +19,8 @@ public interface ICityRepository extends JpaRepository<CityEntity, Integer> {
 
    CityEntity findOneCityEntityByName(String name);
 
-//   List<CityEntity> findAllCitiesByProvinceEntities(ProvinceEntity province);
+   @Query (value = "FROM City c LEFT JOIN Province p ON c.id = :id ")
+   List<CityEntity> findAllCitiesByProvinceEntities(@Param ("id") Integer value);
 
 
 

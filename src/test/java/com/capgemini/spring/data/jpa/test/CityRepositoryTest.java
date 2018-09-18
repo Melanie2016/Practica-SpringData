@@ -108,16 +108,16 @@ public class CityRepositoryTest {
 
     }
 
-/*
     @Test
     public void testfindAllCitiesByProvinceEntities(){
 
-        List<CityEntity> list =  this.repositoryCity.findAllCitiesByProvinceEntities(this.repositoryProvince.getOne(6));
+    	ProvinceEntity province = this.repositoryProvince.getOne(6);
+        List<CityEntity> list =  this.repositoryCity.findAllCitiesByProvinceEntities(province.getId());
 
 
         Assert.assertFalse(list.isEmpty());
 
 
-    }*/
+    }
 
 }
