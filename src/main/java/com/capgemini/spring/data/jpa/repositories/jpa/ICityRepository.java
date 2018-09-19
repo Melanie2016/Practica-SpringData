@@ -18,7 +18,7 @@ public interface ICityRepository extends JpaRepository<CityEntity, Integer> {
 
    CityEntity findOneCityEntityByName(String name);
 
-   @Query (value = "SELECT * FROM city c JOIN province p ON c.id = ?1",
+   @Query (value = "SELECT * FROM city c JOIN province p ON c.id = p.?1",
            nativeQuery = true)
    List<CityEntity> findAllCitiesByProvinceEntities(Integer id);
 
